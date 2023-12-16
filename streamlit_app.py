@@ -22,11 +22,15 @@ alt.themes.enable("dark")
 
 #simply plotting a map with no parameters
 
-st.map()
+df = pd.DataFrame({
+    "col1": np.random.randn(1000) / 50 + 37.76,
+    "col2": np.random.randn(1000) / 50 + -122.4,
+    "col3": np.random.randn(1000) * 100,
+    "col4": np.random.rand(1000, 4).tolist(),
+})
 
-df = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
-
-st.map(df)
-
+st.map(df,
+    latitude='col1',
+    longitude='col2',
+    size='col3',
+    color='col4')
