@@ -1,4 +1,4 @@
-[# 🏂 china-national-and-provincial-dashboar
+## 🏂 china-national-and-provincial-dashboar
 
 A dashboard web app template built in Python using Streamlit.
 
