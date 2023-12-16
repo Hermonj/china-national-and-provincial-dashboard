@@ -67,10 +67,8 @@ st.markdown("""
 
 #######################
 # Load data
-df_reshaped = pd.read_csv('data/us-population-2010-2019-reshaped.csv')
+
 df_reshaped = pd.read_csv('data/Economy_Dashboard3.csv')
-df_reshaped = pd.read_csv('data/GDP by national currency (renminbi) in main years.csv')
-df_reshaped = pd.read_csv('data/Average annual exchange rate in 2022 CNY 6.7261 per U.S. dollar.csv')
 
 
 #######################
@@ -87,18 +85,7 @@ with st.sidebar:
     color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
     
-    st.title('🏂 US Population Dashboard')
     
-    year_list = list(df_reshaped.year.unique())[::-1]
-    
-    selected_year = st.selectbox('Select a year', year_list)
-    df_selected_year = df_reshaped[df_reshaped.year == selected_year]
-    df_selected_year_sorted = df_selected_year.sort_values(by="population", ascending=False)
-
-    color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
-
-
 
 
 
