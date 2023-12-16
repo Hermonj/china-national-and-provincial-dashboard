@@ -74,7 +74,7 @@ df_reshaped = pd.read_csv('data/Economy_Dashboard3.csv')
 #######################
 # Sidebar
 with st.sidebar:
-    st.title('🏂 US Population Dashboard')
+    st.title('🏂 china-national-and-provincial-dashboard')
     
     year_list = list(df_reshaped.year.unique())[::-1]
     
@@ -91,41 +91,3 @@ with st.sidebar:
 
 
 #######################
-# Plots
-
-# Heatmap
-def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
-    heatmap = alt.Chart(input_df).mark_rect().encode(
-            y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
-            x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
-            color=alt.Color(f'max({input_color}):Q',
-                             legend=None,
-                             scale=alt.Scale(scheme=input_color_theme)),
-            stroke=alt.value('black'),
-            strokeWidth=alt.value(0.25),
-        ).properties(width=900
-        ).configure_axis(
-        labelFontSize=12,
-        titleFontSize=12
-        ) 
-    # height=300
-    return heatmap
-
-# Choropleth map
-def make_choropleth(input_df, input_id, input_column, input_color_theme):
-    choropleth = px.choropleth(input_df, locations=input_id, color=input_column, locationmode="USA-states",
-                               color_continuous_scale=input_color_theme,
-                               range_color=(0, max(df_selected_year.population)),
-                               scope="usa",
-                               labels={'population':'Population'}
-                              )
-    choropleth.update_layout(
-        template='plotly_dark',
-        plot_bgcolor='rgba(0, 0, 0, 0)',
-        paper_bgcolor='rgba(0, 0, 0, 0)',
-        margin=dict(l=0, r=0, t=0, b=0),
-        height=350
-    )
-    return choropleth
-
-
