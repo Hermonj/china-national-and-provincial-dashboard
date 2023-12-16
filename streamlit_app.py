@@ -31,3 +31,12 @@ data = pd.DataFrame({
 ## Create a map with the data
 st.map(data)
 
+
+# Create a DataFrame with the points you want to highlight
+highlight = pd.DataFrame({
+    'latitude': [37.7749],
+    'longitude': [-122.4194]
+})
+ 
+# Add the highlight points to the map
+st.map(data, highlight)
