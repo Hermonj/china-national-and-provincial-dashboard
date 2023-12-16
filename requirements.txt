@@ -2,3 +2,7 @@ streamlit
 pandas
 altair
 plotly
+geopandas
+matplotlib.pyplot
+mpl_toolkits.axes_grid1 
+make_axes_locatable
